@@ -1,0 +1,6 @@
+# DOMAIN comes from .env. Use DOMAIN=:80 to test over plain HTTP on the VPS IP,
+# then set your real domain (A record pointing to the VPS) for automatic HTTPS.
+{$DOMAIN} {
+	encode gzip
+	reverse_proxy api:8000
+}

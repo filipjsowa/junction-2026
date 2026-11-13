@@ -59,13 +59,22 @@ dev JSONL / Telegram export ──> ingest (embed via external API) ──> Mari
 
 ## Commands
 
+Everything runs in Docker. **Never install packages or run Python on the host**: add dependencies to
+`requirements.txt` and run `make up` again (it rebuilds). Run scripts with `make run CMD="..."`.
+
 ```bash
 cp .env.example .env                      # fill in keys
-docker compose up -d db                   # MariaDB, runs db/schema.sql on first start
-pip install -r requirements.txt
-python -m ingest.load_jsonl data/dev/sample.jsonl
-uvicorn api.main:app --reload             # http://localhost:8000/docs
-docker compose up -d --build              # full stack (db + api)
+make up                                   # db + api, live reload, http://localhost:8000/docs
+make load FILE=data/dev/sample.jsonl      # embed + insert a JSONL file
+make run CMD="python -m detect.cluster"   # any script, inside the container
+make logs | make sh | make db             # api logs | shell in container | MariaDB console
+make reset                                # wipe the database and re-run db/schema.sql
+make help                                 # all commands
 ```
 
-Reset the database: `docker compose down -v && docker compose up -d db`.
+Local dev uses `docker-compose.override.yml` automatically (code mounted, `--reload`, ports on 127.0.0.1).
+
+## Deploy (Hostinger VPS)
+
+`docker-compose.prod.yml` adds Caddy (HTTPS for `DOMAIN` from `.env`). One-time: `bash deploy/setup-vps.sh <repo URL>`
+on the VPS, fill in `.env`, then `make prod`. Updates: `make deploy` (git pull + rebuild). Logs: `make prod-logs`.

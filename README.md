@@ -3,16 +3,38 @@
 Detects coordinated propaganda swarms in Telegram messages and explains every score.
 Project context, rules and commands for humans and Claude Code: [`CLAUDE.md`](CLAUDE.md).
 
-## Quick start
+## Quick start (only Docker and make needed on your machine)
 
 ```bash
 cp .env.example .env            # fill in DB passwords, embeddings API, AI Router
 # set VECTOR(1024) in db/schema.sql to your embedding dimension
-docker compose up -d db
-pip install -r requirements.txt
-python -m ingest.load_jsonl data/dev/sample.jsonl
-uvicorn api.main:app --reload   # http://localhost:8000/docs
+make up                         # http://localhost:8000/docs, code reloads on save
+make load FILE=data/dev/sample.jsonl
+make help                       # all commands
 ```
+
+No `make` (e.g. Windows without WSL)? The same commands: `docker compose up -d --build`,
+`docker compose run --rm api python -m ingest.load_jsonl data/dev/sample.jsonl`.
+
+Optional: `make venv` creates `.venv/` inside the project, only so your editor gets autocompletion.
+
+## Deploy to the Hostinger VPS
+
+1. In hPanel, open the VPS (Ubuntu, Docker template is fine) and note its IP. In the VPS firewall, allow ports 22, 80 and 443.
+2. SSH in as root and run the one-time setup (installs Docker, make and git if missing, clones to `/opt/swarm-detector`):
+   ```bash
+   git clone <repo URL> /opt/swarm-detector && bash /opt/swarm-detector/deploy/setup-vps.sh <repo URL>
+   ```
+   For a private repo, add a deploy key or use an HTTPS token URL.
+3. `nano /opt/swarm-detector/.env`: same keys as locally, strong DB passwords, `DOMAIN=:80` for a first test.
+   The script already added `COMPOSE_FILE=...prod...`, so every `make` command on the VPS uses the prod setup.
+4. `cd /opt/swarm-detector && make prod`, then open `http://<VPS IP>/docs`.
+5. HTTPS: point your free domain's A record to the VPS IP, set `DOMAIN=yourdomain.com` in `.env`, run `make prod` again.
+   Caddy gets the certificate by itself.
+6. Later updates: `git push` locally, then `make deploy` on the VPS.
+
+Data files are not in the image: copy them with `scp data/dev/*.jsonl root@<VPS IP>:/opt/swarm-detector/data/dev/`
+and run `make load FILE=...` on the VPS.
 
 ## Kickoff prompts for Claude Code (one per person)
 
