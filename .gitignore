@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+data/dev/*.jsonl
+!data/dev/sample.jsonl

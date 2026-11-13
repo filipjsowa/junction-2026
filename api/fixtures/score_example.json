@@ -1,0 +1,19 @@
+{
+  "verdict": "matches_flagged_campaign",
+  "score": 0.87,
+  "matched_cluster": {
+    "id": 12,
+    "narrative": "Gunman was a Ukrainian soldier (vest patch)",
+    "similarity": 0.93,
+    "review": {"status": "confirmed", "by": "reviewer-1", "at": "2026-11-14T10:20:00Z"}
+  },
+  "reasons": [
+    {"feature": "near_dup_share", "value": 0.68, "contribution": 1.36, "text": "68% of those messages are near-copies"},
+    {"feature": "burstiness", "value": 0.80, "contribution": 1.2, "text": "80% appeared within 90 minutes of the first one"},
+    {"feature": "match_similarity", "value": 0.93, "contribution": 0.93, "text": "93% similar to 41 messages in cluster 12"}
+  ],
+  "techniques": [{"name": "fabricated authority", "quote": "...", "message_id": 4812}],
+  "evidence": [{"message_id": 4812, "channel": "example_channel", "ts": "2026-11-07T16:42:00Z", "similarity": 0.95, "text": "..."}],
+  "model_quality": {"precision": null, "false_positive_rate": null, "eval_set": "reviewer labels + control channels"},
+  "_fixture": "FAKE DATA - replace with detect output"
+}
