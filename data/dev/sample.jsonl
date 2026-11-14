@@ -1,6 +1,5 @@
-{"platform": "synthetic", "channel_id": "syn_ch_01", "text": "[SYNTHETIC] Look at the patch on his vest - the Krakow shooter was a Ukrainian soldier and the media is hiding it.", "lang": "en", "ts": "2026-11-07T16:05:00Z", "synthetic": true, "label": "swarm:ukrainian-soldier"}
-{"platform": "synthetic", "channel_id": "syn_ch_02", "text": "[SYNTHETIC] The vest patch proves it: the Krakow gunman was Ukrainian military, and nobody in the media will say it.", "lang": "en", "ts": "2026-11-07T16:07:30Z", "synthetic": true, "label": "swarm:ukrainian-soldier"}
-{"platform": "synthetic", "channel_id": "syn_ch_03", "text": "[SYNTHETIC] Why is no one talking about the patch on his vest? Krakow shooter = Ukrainian soldier. Media silence.", "lang": "en", "ts": "2026-11-07T16:09:10Z", "synthetic": true, "label": "swarm:ukrainian-soldier"}
-{"platform": "synthetic", "channel_id": "syn_news_01", "text": "[SYNTHETIC] Police say the suspect in the Krakow Main Square shooting is a 24-year-old Polish citizen. Investigation ongoing.", "lang": "en", "ts": "2026-11-07T18:00:00Z", "synthetic": true, "label": "benign:wire-story", "is_control": true}
-{"platform": "synthetic", "channel_id": "syn_news_02", "text": "[SYNTHETIC] Police say the suspect in the Krakow Main Square shooting is a 24-year-old Polish citizen. Investigation ongoing.", "lang": "en", "ts": "2026-11-07T18:01:00Z", "synthetic": true, "label": "benign:wire-story", "is_control": true}
-{"platform": "synthetic", "channel_id": "syn_user_17", "text": "[SYNTHETIC] Absolutely heartbreaking news from Krakow tonight. Thinking of the families.", "lang": "en", "ts": "2026-11-08T09:12:00Z", "synthetic": true, "label": "organic"}
+{"id": "msg_1", "text": "The election was totally rigged! They are bringing in fake ballots by the truckload. #StopTheSteal", "platform": "twitter"}
+{"id": "msg_2", "text": "Massive voter fraud happening right now. Trucks full of fake votes seen arriving at counting centers. #StopTheSteal", "platform": "telegram"}
+{"id": "msg_3", "text": "I saw it myself, boxes of fake ballots being unloaded from trucks. This election is a sham! #StopTheSteal", "platform": "bluesky"}
+{"id": "msg_4", "text": "Just had a great coffee at the new place downtown.", "platform": "twitter"}
+{"id": "msg_5", "text": "Did anyone see the game last night? Crazy finish!", "platform": "bluesky"}

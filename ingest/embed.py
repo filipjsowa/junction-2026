@@ -6,8 +6,8 @@ import os
 
 import httpx
 
-BASE_URL = os.environ["EMBEDDINGS_BASE_URL"].rstrip("/")
-API_KEY = os.environ.get("EMBEDDINGS_API_KEY", "")
+BASE_URL = os.environ.get("EMBEDDINGS_BASE_URL", os.environ.get("AI_ROUTER_BASE_URL", "")).rstrip("/")
+API_KEY = os.environ.get("AI_ROUTER_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
 MODEL = os.environ.get("EMBEDDINGS_MODEL", "")
 DIM = int(os.environ["EMBEDDING_DIM"])
 BATCH_SIZE = 64

@@ -21,9 +21,9 @@ WEIGHTS = {
 REASON_TEMPLATES = {
     "match_similarity": "{pct:.0f}% similar to {size} messages in cluster {cluster_id}",
     "near_dup_share": "{pct:.0f}% of those messages are near-copies",
-    "account_spread": "Posted by {n_channels} different channels",
+    "account_spread": "Posted by {n_accounts} different accounts",
     "burstiness": "{pct:.0f}% appeared within {window_min} minutes of the first one",
-    "known_actor_share": "{n_known} of {n_channels} channels are on the known-actor list",
+    "known_actor_share": "{n_known} of {n_accounts} accounts are on the known-actor list",
     "null_model_z": "Coordination is {z:.1f} standard deviations above chance",
 }
 

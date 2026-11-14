@@ -21,6 +21,6 @@ Planned files (Person 1):
 - `planted_swarms.jsonl`: ~5 narratives × 30–80 LLM-reworded messages from 15–40 fake channels in tight bursts, plus organic messages over several days.
 - `benign_trap.jsonl`: ~10 news channels posting the same wire story (the false-positive test).
 - `ira_sample.jsonl`: ~50k sample of FiveThirtyEight's Russian troll tweets (`github.com/fivethirtyeight/russian-troll-tweets`), converted to this format.
-- `krakow_telegram.jsonl`: 7–10 Nov 2026 export from the seed channels (telegram-tracker).
+- `real_world_export.jsonl`: Export from the seed channels (scrapers/trackers).
 
 `sample.jsonl` is a 6-line smoke test.

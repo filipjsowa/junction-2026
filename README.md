@@ -1,6 +1,6 @@
 # Swarm Detector
 
-Detects coordinated propaganda swarms in Telegram messages and explains every score.
+Detects coordinated propaganda swarms in social media posts (Telegram, Twitter/X, Bluesky) and explains every score.
 Project context, rules and commands for humans and Claude Code: [`CLAUDE.md`](CLAUDE.md).
 
 ## Quick start (only Docker and make needed on your machine)
@@ -57,3 +57,8 @@ and run `make load FILE=...` on the VPS.
 
 `.mcp.json` adds Hostinger's hosted MCP server (`https://mcp.hostinger.com`, browser sign-in on first use).
 Enable the VPS product group in the Hostinger Connector to manage the server from Claude Code.
+
+## Hackathon Tech Challenges
+
+- **Modal**: The project uses Modal to offload the heavy clustering and evaluation script to serverless GPUs.
+- **Oxylabs Web API**: Used in the ingestion pipeline to scrape and verify URLs found in social media posts to improve detection accuracy.

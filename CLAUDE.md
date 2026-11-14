@@ -1,7 +1,7 @@
 # Swarm Detector
 
-Hackathon project (Junction, Hostinger challenge). Detects coordinated propaganda swarms in Telegram messages
-(first case: disinformation after the Kraków attack on 7 Nov 2026) and returns an **explainable** 0–1 score.
+Hackathon project (Junction, Hostinger challenge). Detects coordinated propaganda swarms in Social media posts (Telegram, Twitter/X, Bluesky)
+(first case: coordinated information operation / disinformation campaign) and returns an **explainable** 0–1 score.
 Must run live on a Hostinger VPS (KVM 2: 2 vCPU, 8 GB RAM, Docker) with a public URL for the judges.
 
 Full team plan: `docs/PLAN.md`.
@@ -9,7 +9,7 @@ Full team plan: `docs/PLAN.md`.
 ## Architecture
 
 ```
-dev JSONL / Telegram export ──> ingest (embed via external API) ──> MariaDB 11.8 (messages, VECTOR index)
+dev JSONL / Social media export ──> ingest (embed via external API) ──> MariaDB 11.8 (messages, VECTOR index)
                                                                         │
                        detect: BERTopic clustering → coordination features → score + LLM narrative ──> clusters
                                                                         │
@@ -22,7 +22,7 @@ dev JSONL / Telegram export ──> ingest (embed via external API) ──> Mari
 
 | Folder    | Owner    | What                                                              |
 | --------- | -------- | ----------------------------------------------------------------- |
-| `ingest/` | Person 1 | Load JSONL, embed, insert into `messages`; Telegram export        |
+| `ingest/` | Person 1 | Load JSONL, embed, insert into `messages`; Social media export    |
 | `detect/` | Person 2 | Clustering, coordination features, scoring, LLM narrative, eval   |
 | `api/`    | Person 3 | FastAPI endpoints                                                 |
 | `web/`    | Person 3 | Check page, cluster graph, reviewer console, metrics page         |

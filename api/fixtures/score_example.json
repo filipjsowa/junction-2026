@@ -13,7 +13,11 @@
     {"feature": "match_similarity", "value": 0.93, "contribution": 0.93, "text": "93% similar to 41 messages in cluster 12"}
   ],
   "techniques": [{"name": "fabricated authority", "quote": "...", "message_id": 4812}],
-  "evidence": [{"message_id": 4812, "channel": "example_channel", "ts": "2026-11-07T16:42:00Z", "similarity": 0.95, "text": "..."}],
+  "evidence": [
+    {"message_id": 4812, "platform": "telegram", "channel": "example_channel", "ts": "2026-11-07T16:42:00Z", "similarity": 0.95, "text": "..."},
+    {"message_id": 4813, "platform": "twitter", "channel": "some_user", "ts": "2026-11-07T16:45:00Z", "similarity": 0.92, "text": "..."},
+    {"message_id": 4814, "platform": "bluesky", "channel": "another_user", "ts": "2026-11-07T16:50:00Z", "similarity": 0.91, "text": "..."}
+  ],
   "model_quality": {"precision": null, "false_positive_rate": null, "eval_set": "reviewer labels + control channels"},
   "_fixture": "FAKE DATA - replace with detect output"
 }
